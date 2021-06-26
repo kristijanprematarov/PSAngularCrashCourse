@@ -35,6 +35,18 @@
       "date": "1995-12-01T07:00:00.000Z",
       "weight": 161,
       "bodyfat": 0.18
+    },
+    {
+      "weight": "102",
+      "bodyfat": "10",
+      "date": null,
+      "id": 7
+    },
+    {
+      "weight": "100",
+      "bodyfat": "10",
+      "date": "2021-05-09T22:00:00.000Z",
+      "id": 8
     }
   ],
   "settings": {

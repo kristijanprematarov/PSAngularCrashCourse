@@ -13,7 +13,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let entry of entriesService.sortedEntries">
+    <tr *ngFor="let entry of entries">
+      <td style="width: 20px;">
+        <a [routerLink]="['/entries/' + entry.id]">
+          <span class="detailIcon"><i class="fas fa-info-circle"></i></span>
+        </a>
+      </td>
       <td scope="col">{{(entry.date | date: 'longDate')}}</td>
       <td scope="col">{{entry.weight}}</td>
       <td *ngIf="showBodyFat" scope="col">{{entry.bodyfat | percent}}</td>

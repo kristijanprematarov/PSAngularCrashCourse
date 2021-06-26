@@ -9,17 +9,29 @@ import { WeightEntriesService } from '../services/weight-entries.service';
 })
 export class HomeComponent implements OnInit {
   showBodyFat = true;
+  entries: Entry[];
 
   constructor(public entriesService: WeightEntriesService) { }
 
   ngOnInit() {
+    this.updateData();
   }
 
-  toggleBodyFat(){
+  updateData() {
+    this.entriesService.getEntries()
+      .subscribe(entries => {
+        this.entries = entries;
+      })
+  }
+
+  toggleBodyFat() {
     this.showBodyFat = !this.showBodyFat;
   }
 
   createNewEntry(entry: Entry) {
-    this.entriesService.addEntry(entry);
+    this.entriesService.addEntry(entry)
+      .subscribe(() => {
+        this.updateData();
+      });
   }
 }
